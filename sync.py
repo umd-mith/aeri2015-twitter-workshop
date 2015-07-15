@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 Copy latest notebooks into user workspaces. Also creates symlink to shared
@@ -14,7 +14,7 @@ source_user = 'ubuntu'
 source_dir = '/home/%s/aeri2015-twitter-workshop' % source_user
 
 # blow away changes?
-overwrite = True
+overwrite = input("overwrite? (y/n) ").lower() == "y"
 
 # where to copy notebooks to
 targets = os.listdir('/home')
@@ -25,7 +25,7 @@ for target in targets:
     link = os.path.join('/home', target, 'data')
     if not os.path.islink(link):
         print("linking %s to %s" % (data, link))
-	os.symlink(data, link)
+        os.symlink(data, link)
 
 # copy each notebook
 for file in os.listdir(source_dir):
@@ -34,7 +34,7 @@ for file in os.listdir(source_dir):
         for target in targets:
             target = os.path.join('/home/', target, file)
             if not os.path.isfile(target) or overwrite:
-                print "copying %s to %s" % (src, target)
+                print("copying %s to %s" % (src, target))
                 shutil.copyfile(src, target)
 
 # make sure it's writeable by the user
