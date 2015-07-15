@@ -14,7 +14,7 @@ source_user = 'ubuntu'
 source_dir = '/home/%s/aeri2015-twitter-workshop' % source_user
 
 # blow away changes?
-overwrite = False
+overwrite = True
 
 # where to copy notebooks to
 targets = os.listdir('/home')
