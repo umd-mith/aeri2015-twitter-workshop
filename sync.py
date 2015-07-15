@@ -3,6 +3,9 @@
 """
 Copy latest notebooks into user workspaces. Also creates symlink to shared
 data area if it is not already there. Needs to be run as root. Sorry.
+
+Note to my future self: if using this again it would be better to lean on 
+Git more, since it will manage getting latest changes (including deletes).
 """
 
 import os
